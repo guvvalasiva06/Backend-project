@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        th,td,tr,table{
+        border:1px solid black;
+            border-collapse:collapse;
+            text-align:center;
+            margin:30px;
+            padding:30px;
+
+        }
+        a{
+        text-decoration:none;
+
+    </style>
+</head>
+<body>
+
+<form action="/deletepage" method="post">
+    <table>
+    <tr>
+        <th>emid</th>
+        <th>name</th>
+        <th>username</th>
+        <th>password</th>
+        <th>email</th>
+        <th>delete</th>
+
+    </tr>
+     {% for row in data %}
+<tr>
+    <td>{{row[0]}}</td>
+    <td>{{row[1]}}</td>
+    <td>{{row[2]}}</td>
+    <td>{{row[3]}}</td>
+     <td>{{row[4]}}</td>
+    <td>
+   <button style="background-color:red"><a  href="/deletepage?emid={{row[0]}}">Delete</a></button>
+    </td>
+
+</tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>

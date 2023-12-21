@@ -1,0 +1,74 @@
+{% extends "common.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        form{
+            color:black;
+            align-content: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+            box-sizing: border-box;
+            font-size:x-large;
+            margin:50px;
+
+
+
+        }
+        input[type=text] {
+        width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        input[type=password]{
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+       button{
+        font-size: x-large;
+
+       }
+       body{
+        background-image: url("https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_960_720.jpg");
+        background-attachement:fixed;
+        background-repeat:no-repeat;
+        background-size:cover;
+       }
+
+    </style>
+
+</head>
+<body>
+<div>
+    <hr>
+    <h3 style="color:green ; text-align:center ">Payment</h3>
+    <hr>
+      {{msg}}
+    <form   method="post" action="/payment1">
+        <label for="cardnumber">cardnumber</label>
+        <br>
+        <input id="cardnumber" name="cardnumber" placeholder="Enter your last 6 digits" required type="text" maxlength="6">
+        <br>
+        <label for="cvv">cvv</label>
+        <br>
+        <input id="cvv" name="cvv" placeholder="CVV" required type="text" maxlength="3">
+        <br>
+
+        <label for="cardholder">cardholdername</label>
+        <br>
+        <input id="cardholder" name="cardholdername" placeholder="Enter the cardholder's name" required type="text">
+        <br>
+
+        <button type="submit">Pay Now</button>
+    </form>
+</div>
+
+</body>
+</html>
+{% endblock %}

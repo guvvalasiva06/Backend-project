@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        th,td,tr,table{
+        cellspacing:1;
+        cellpadding:1;
+        border:1px solid black;
+        border-collapse:collapse;
+        margin:30px;
+        padding:30px;
+        }
+        a{
+        text-decoration:none;
+
+    </style>
+
+</head>
+<body>
+<button style="background-color:pink"><a href="/">index</a></button>
+<button style="background-color:navyblue"><a href="/register">register</a></button>
+<button style="background-color:red"><a href="/delete">delete</a></button>
+<button style="background-color:green"><a href="/update">update</a></button>
+
+    <table>
+    <tr>
+        <th>emid</th>
+        <th>name</th>
+        <th>username</th>
+        <th>password</th>
+        <th>email</th>
+        <th>update</th>
+
+    </tr>
+     {% for row in data %}
+<tr>
+     <td>{{row[0]}}</td>
+     <td>{{row[1]}}</td>
+     <td>{{row[2]}}</td>
+     <td>{{row[3]}}</td>
+     <td>{{row[4]}}</td>
+
+
+    <td>
+  <button style="background-color:green" ><a  href="/updatepage?emid={{row[0]}}">update</a></button>
+    </td>
+
+</tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

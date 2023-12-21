@@ -1,0 +1,113 @@
+{% extends "common.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .book{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: 100px 10% 100px;
+}
+.book-img img{
+    box-shadow: 0px 5px 5px -6px black;
+    width: 100%;
+    display: block;
+    margin-top: 45px;
+    cursor: pointer;
+}
+.book-form form{
+    position: relative;
+}
+.book-form h5{
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #f4f5fb;
+}
+.book-form form input,
+form textarea{
+    width: 100%;
+    padding: 15px;
+    background: #f4f5fb;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px -6px black;
+    margin-bottom: 10px;
+}
+.book-form textarea{
+    resize: none;
+    height: 200px;
+}
+.book-form .submit{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f4f5fb;
+    color: black;
+    width: 160px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.book-form .submit:hover{
+    width: 175px;
+}
+@media (max-width:920px){
+    .book{
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+body{
+        background-image: url("https://cdn.pixabay.com/photo/2014/08/15/11/29/beach-418742_960_720.jpg");
+        background-attachement:fixed;
+        background-repeat:no-repeat;
+        background-size:cover;
+
+        form label{
+        color:red;
+        }
+
+    </style>
+</head>
+<body>
+
+ <section class="book" id="book">
+        <div class="book-img">
+            <img src="static/images/book-img.png" alt="">
+        </div>
+        <div class="book-form">
+            <h5>BOOK YOUR DESTINATION</h5>
+            {{msg}}
+            <form method="post" action="/booking1">
+                <label for="destination">destination</label>
+                <br>
+                <input type="text" id="destination" name="destination" placeholder="Where To" required>
+                <br>
+                <label for="members">members</label>
+                <br>
+                <input type="text" id="members" name="members"placeholder="How Many" required>
+                <br>
+                  <label for="bookingdate">bookingdate</label>
+                <br>
+                <input type="date" id="bookingdate" name="bookingdate" placeholder="Arrivals" required>
+                <br>
+                  <label for="leavingdate">leavingdate</label>
+                <br>
+                <input type="date" id="leavingdate" name="leavingdate"placeholder="Leaving" required>
+                 <label for="address">address</label>
+                <br>
+                <textarea name="address" id="address" cols="5" rows="5"  placeholder="Enter Your Address "></textarea>
+                <input type="submit" value="Book Now" class="submit" required>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
+{% endblock %}

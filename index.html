@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Josefin Sans', sans-serif;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: #f4f5fb;
+    border-radius: 10px;
+}
+html::-webkit-scrollbar{
+    width: 10px;
+}
+body{
+    background:  linear-gradient(90deg in oklab, blue, red);
+}
+
+/* Header Start */
+.header{
+    background: transparent;
+    width: 100%;
+}
+.header nav{
+    position: relative;
+    display: flex;
+    max-width: calc(100% - 200px);
+    margin: 0 auto;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .content{
+    display: flex;
+    align-items: center;
+}
+nav .content .links{
+    margin-left: 80px;
+    display: flex;
+}
+nav .content .links a img{
+    width: 50px;
+}
+nav .content .links li{
+    list-style: none;
+    line-height: 70px;
+}
+nav .content .links li a,
+nav .content .links li label{
+    color: #f4f5fb;
+    font-size: 18px;
+    padding: 9px 17px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.content .links li label{
+    display: none;
+}
+nav .content .links li a:hover,
+nav .content .links li label:hover{
+    color: #1c0a51;
+    background: #f4f5fb;
+}
+.header .search-icon,
+.header .menu-icon{
+    color: #f4f5fb;
+    font-size: 18px;
+    line-height: 70px;
+    width: 70px;
+    text-align: center;
+    cursor: pointer;
+}
+.header .menu-icon{
+    display: none;
+}
+.header #show-search:checked ~ .search-icon i::before{
+    content: "\f00d";
+}
+.header .search-box{
+    position: absolute;
+    height: 100%;
+    max-width: calc(100% - 50px);
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.header #show-search:checked ~ .search-box{
+    opacity: 1;
+    pointer-events: auto;
+}
+.header input[type="checkbox"]{
+    display: none;
+}
+
+/* Responsive */
+@media screen and (max-width:1250px){
+    .header nav{
+        max-width: 100%;
+        padding: 0px 20px;
+    }
+    nav .content .links{
+        margin-left: 30px;
+    }
+    .content .links a{
+        padding: 8px 13px;
+    }
+    .header .search-box{
+        max-width: calc(100% - 100px);
+    }
+    .header .search-box input{
+        padding: 0px 100px 0px 15px;
+    }
+}
+@media screen and (max-width:900px){
+    .header .menu-icon{
+        display: block;
+    }
+    .header #show-menu:checked ~ .menu-icon i::before{
+        content: "\f00d";
+    }
+    nav .content .links{
+        display: block;
+        position: fixed;
+        background: #1c0a51;
+        height: 100%;
+        width: 100%;
+        top: 70px;
+        left: -100%;
+        margin-left: 0;
+        max-width: 350px;
+        overflow: auto;
+        padding-bottom: 100px;
+        transition: all 0.3s ease;
+    }
+    nav #show-menu:checked ~ .content .links{
+        left: 0%;
+    }
+    .content .links li{
+        margin: 15px 20px;
+    }
+    .content .links li a,
+    .content .links li label{
+        line-height: 40px;
+        font-size: 20px;
+        display: block;
+        padding: 8px 18px;
+        cursor: pointer;
+    }
+    .content .links li a.desktop-link{
+        display: none;
+    }
+}
+/* Responsive */
+
+/* Header End */
+
+
+/* Home Section Start */
+.home{
+    width: 100%;
+    height: 95vh;
+    background-image: url(./images/b1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 85%;
+}
+.home .main-text{
+    text-align: center;
+    padding: 200px 10% 10px;
+}
+.main-text h3{
+    font-size: 50px;
+    color: #f4f5fb;
+    text-shadow: 0px 0px 1px black;
+}
+.home .main-text p{
+    color: #f4f5fb;
+    margin-top: 5px;
+}
+#home-btn{
+    margin-top: 20px;
+    padding: 6px;
+    background: #1c0a51;
+    color: #f4f5fb;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#home-btn2{
+    margin-left: 10px;
+    padding: 5px;
+    background: #f4f5fb;
+    color: #1c0a51;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+#home-btn2:hover{
+    transform: translateY(-3px);
+}
+@media (max-width:1300px){
+    .main-text{
+        padding: 200px 10% 10px;
+    }
+}
+@media (max-width:920px){
+    .home .main-text h3{
+        font-size: 40px;
+    }
+}
+@media (max-width:500px){
+    .home .main-text h3{
+        font-size: 30px;
+    }
+}
+/* Home Section End */
+
+
+/* Services Section Start */
+.services{
+    padding: 100px 10% 120px;
+}
+.services .heading{
+    text-align: center;
+}
+.services .heading h3{
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #f4f5fb;
+}
+.services .card-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    align-items: center;
+    gap: 0.90rem;
+    margin-top: 30px;
+}
+.services .card-content .row{
+    background: #1c0a51;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.services .row i{
+    color: #f4f5fb;
+    font-size: 60px;
+    padding: 10px;
+    display: block;
+}
+.services .card-body h3{
+    color: #f4f5fb;
+    font-size: 25px;
+}
+.services .card-body p{
+    color: #f4f5fb;
+}
+@media (max-width:920px){
+    .services .card-content{
+        grid-template-columns: 1fr;
+    }
+}
+/* Services Section End */
+
+
+
+/* About Section Start */
+.about{
+    padding: 100px 8% 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+.about-img img{
+    max-width: 530px;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+.about-info h3{
+    color: #f4f5fb;
+    font-size: 30px;
+    line-height: 1;
+}
+.about-info h6{
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #f4f5fb;
+}
+.about-info p{
+    color: #f4f5fb;
+    letter-spacing: 1px;
+    margin-bottom: 4rem;
+    margin-top: 10px;
+}
+.about-btn{
+    width: 150px;
+    height: 36px;
+    font-weight: bold;
+    background: #f4f5fb;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.about-btn:hover{
+    width: 165px;
+}
+@media (max-width:920px){
+    .about{
+        grid-template-columns: 1fr;
+    }
+    .about-img{
+        text-align: center;
+        order: 2;
+    }
+    .about-img img{
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+/* About Section End */
+
+
+
+
+
+/* Gallary Section Start */
+.gallary{
+    padding: 120px 10% 120px;
+}
+.gallary .heading h3{
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: #f4f5fb;
+    border-bottom: 2px solid #1c0a51;
+}
+.gallary-card{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+    align-items: center;
+    gap: 0.90rem;
+    margin-top: 30px;
+}
+.gallary-card .row img{
+    width: 200px;
+    padding: 10px;
+    display: block;
+    border-radius: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.gallary-card .row img:hover{
+    transform: translateY(-10px);
+}
+@media (max-width:920px){
+    .gallary-card{
+        grid-template-columns: 1fr;
+    }
+}
+/* Gallary Section End */
+
+
+
+
+
+/* Packages Section Start */
+.packages{
+    padding: 100px 8% 100px;
+}
+.packages .main-txt{
+    text-align: center;
+}
+.packages .main-txt h3{
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #f4f5fb;
+    text-shadow: 0px 1px 1px black;
+}
+.packages .card-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    align-items: center;
+    gap: 0.90rem;
+    margin-top: 30px;
+}
+.packages .card-content .row{
+    background: #f4f5fb;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.packages .row img{
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px;
+    display: block;
+}
+.packages .card-body{
+    padding: 10px;
+}
+.packages .card-body h3{
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 550;
+    color: black;
+    text-shadow: 0px 1px 1px black;
+}
+.packages .card-body p{
+    font-weight: 500;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+.rating i{
+    color: orange;
+    margin-top: 5px;
+}
+.packages .card-body h5{
+    margin-top: 10px;
+    font-size: 18px;
+}
+.packages .card-body button{
+    width: 130px;
+    height: 30px;
+    margin-top: 10px;
+    font-weight: 600;
+    background: transparent;
+    color: #1c0a51;
+    border-radius: 5px;
+    border-radius: 5px;
+    border: 2px solid #1c0a51;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.packages .card-body button:hover{
+    background: #1c0a51;
+    color: #f4f5fb;
+}
+@media (max-width:920px){
+    .packages .card-content{
+        grid-template-columns: 1fr;
+    }
+}
+/* Packages Section End */
+
+
+
+
+
+/* Book Section Start */
+.book{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1rem;
+    padding: 100px 10% 100px;
+}
+.book-img img{
+    box-shadow: 0px 5px 5px -6px black;
+    width: 100%;
+    display: block;
+    margin-top: 45px;
+    cursor: pointer;
+}
+.book-form form{
+    position: relative;
+}
+.book-form h5{
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #f4f5fb;
+}
+.book-form form input,
+form textarea{
+    width: 100%;
+    padding: 15px;
+    background: #f4f5fb;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px -6px black;
+    margin-bottom: 10px;
+}
+.book-form textarea{
+    resize: none;
+    height: 200px;
+}
+.book-form .submit{
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    background: #f4f5fb;
+    color: black;
+    width: 160px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.book-form .submit:hover{
+    width: 175px;
+}
+@media (max-width:920px){
+    .book{
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+/* Book Section End */
+
+
+
+
+
+/* Review Section Start */
+.reviews{
+    padding: 120px 10% 120px;
+}
+.reviews .main-txt h3{
+    font-size: 36px;
+    font-weight: 600;
+    color: #f4f5fb;
+}
+.reviews .card-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    align-items: center;
+    gap: 0.90rem;
+    margin-top: 30px;
+}
+.reviews .row{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    display: block;
+    background: #f4f5fb;
+    cursor: pointer;
+}
+.reviews h5{
+    padding: 20px;
+    font-size: 17px;
+    text-shadow: 0px 1px 1px black;
+}
+.reviews h5 img{
+    width: 50px;
+    border-radius: 50%;
+}
+.reviews p{
+    padding-left: 25px;
+    margin-top: 10px;
+}
+.reviews .rating{
+    color: orange;
+    margin-left: 25px;
+}
+@media (max-width:920px){
+    .reviews .card-content{
+        grid-template-columns: 1fr;
+    }
+}
+/* Review Section End */
+
+
+
+
+
+/* Contact Section Start */
+.contact{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+    padding: 100px 8% 100px;
+}
+.contact-text{
+    margin-bottom: 10px;
+}
+.contact-text h2{
+    color: #f4f5fb;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.contact-text h2 span{
+    text-shadow: 0px 1px 1px blanchedalmond;
+}
+.contact-text p{
+    font-weight: bold;
+    color: #f4f5fb;
+}
+.list{
+    margin-top: 16px;
+}
+.list li{
+    margin-bottom: 12px;
+}
+.list li a{
+    display: block;
+    color: #f4f5fb;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.5s ease;
+}
+.contact-form form{
+    position: relative;
+}
+.contact-form form input,
+form textarea{
+    width: 100%;
+    padding: 10px;
+    background: #f4f5fb;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.contact-form textarea{
+    resize: none;
+    height: 160px;
+}
+.contact-form .submit{
+    display: inline-block;
+    font-size: 15px;
+    background: #f4f5fb;
+    color: black;
+    width: 160px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.contact-form .submit:hover{
+    width: 175px;
+}
+@media (max-width:920px){
+    .contact{
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+/* Contact Section End */
+
+#searchContainer {
+            display: flex;
+            align-items: center;
+            width: 300px;
+            margin: 20px;
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #searchIcon {
+            padding: 10px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+
+
+
+/* Footer Start */
+#footer{
+    width: 100%;
+    padding: 50px 8% 50px;
+    background-color: #1c0a51;
+    box-shadow: 10px 10px 10px 10px #f4f5fb;
+}
+.footer-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    align-items: center;
+    gap: 0.90rem;
+}
+#footer #row1{
+    position: relative;
+    overflow: hidden;
+}
+#footer #row1 #footer-logo{
+    font-size: 30px;
+    color: #f4f5fb;
+}
+#footer #row1 p{
+    color: #f4f5fb;
+    margin-top: 10px;
+}
+.socail-links{
+    margin-top: 15px;
+}
+.socail-links i{
+    color: #1c0a51;
+    background: #f4f5fb;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#row2 h3{
+    font-size: 18px;
+    color: #f4f5fb;
+    border-bottom: 2px solid #f4f5fb;
+}
+#row2 ul{
+    margin-top: 15px;
+}
+#row2 ul li{
+    margin-top: 8px;
+}
+#row2 ul li a{
+    color: #f4f5fb;
+    transition: 0.5s ease;
+}
+#row2 li a:hover{
+    border-bottom: 1px solid #f4f5fb;
+}
+#row3 h3{
+    font-size: 18px;
+    color: #f4f5fb;
+    border-bottom: 2px solid #f4f5fb;
+}
+#row3 ul{
+    margin-top: 15px;
+}
+#row3 ul li{
+    margin-top: 8px;
+}
+#row3 ul li a{
+    color: #f4f5fb;
+    transition: 0.5s ease;
+}
+#row3 li a:hover{
+    border-bottom: 1px solid #f4f5fb;
+}
+#row4 h3{
+    font-size: 18px;
+    color: #f4f5fb;
+    border-bottom: 2px solid #f4f5fb;
+}
+#row4 img{
+    width: 180px;
+    cursor: pointer;
+
+}
+        .carousel-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+</body>
+ <style>
+        form{
+            color:white;
+            align-content: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+            box-sizing: border-box;
+            font-size:x-large;
+            margin:50px;
+
+
+
+        }
+        input[type=text] {
+        width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        input[type=password]{
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+       button{
+        font-size: x-large;
+
+       }
+
+    </style>
+
+
+
+    <!-- Style Css Link -->
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+    <!-- Google Font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Font links -->
+
+</head>
+<body>
+
+    <!-- Header Start -->
+
+    <div class="header">
+        <nav>
+
+            <input type="checkbox" id="show-search">
+            <input type="checkbox" id="show-menu">
+            <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+
+            <div class="content">
+
+                <div class="logo">
+                    <div class="logo"><a href="index.html"><img src="static/images/logo.png" alt=""></a></div>
+                </div>
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#book">Book</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#Registration-form">Registration</a></li>
+                </ul>
+            </div>
+            <!-- Search bar -->
+    <input type="text" id="searchBar" placeholder="Search destinations..." >
+            <button oninput="filterDestinations()">search</button>
+
+    </div>
+        </nav>
+    </div>
+
+    <!-- Header End -->
+
+    <!-- Home Section Start -->
+    <section class="home" id="home">
+        <div class="main-text">
+            <h3>Travel The World
+                <br> & Explore The New Destination
+            </h3>
+
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro molestias nemo, harum debitis error itaque?</p>
+        <a href="#packages"><button id="home-btn">PACKAGES <i class="fa-solid fa-arrow-down"></i><button id="home-btn2"><i class="fa-sharp fa-solid fa-circle-play"></i></button></button></a>
+    </div>
+    </section>
+    <!-- Home Section End -->
+     <div class="carousel-container">
+        <div class="carousel-content">
+            <!-- Slide 1 -->
+            <div class="carousel-item">
+                <img src="https://img.freepik.com/free-photo/full-shot-travel-concept-with-landmarks_23-2149153258.jpg?3&w=1060&t=st=1702300903~exp=1702301503~hmac=12d7f59817534095f52cd87d6dd49dfc0614bd970d9d3638806b709be915e816" alt="Slide 1">
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="https://img.freepik.com/free-photo/travel-concept-with-landmarks_23-2149153256.jpg?w=1060&t=st=1702300930~exp=1702301530~hmac=311c2976baf46e34f7a2fcc829cd17bdd6ccda9c422e1ec691d86335305a9217" alt="Slide 2">
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="https://img.freepik.com/premium-photo/travel-concept-with-landmarks_23-2149153251.jpg?2&w=996" alt="Slide 3">
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="carousel-arrow prev" onclick="prevSlide()">❮</div>
+        <div class="carousel-arrow next" onclick="nextSlide()">❯</div>
+    </div>
+
+    <script>
+        var currentIndex = 0;
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % document.querySelectorAll('.carousel-item').length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + document.querySelectorAll('.carousel-item').length) % document.querySelectorAll('.carousel-item').length;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            var translateValue = -currentIndex * 100 + '%';
+            document.querySelector('.carousel-content').style.transform = 'translateX(' + translateValue + ')';
+        }
+    </script>
+
+
+    <!-- Services Section Start -->
+    <section class="services" id="services">
+        <div class="heading">
+            <h3>Services</h3>
+        </div>
+            <div class="card-content">
+
+                <div class="row">
+                    <i class="fas fa-globe-asia"></i>
+                    <div class="card-body">
+                        <h3>Around The World</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <i class="fas fa-plane"></i>
+                    <div class="card-body">
+                        <h3>Fastet Travel</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <i class="fas fa-hotel"></i>
+                    <div class="card-body">
+                        <h3>Affordable Hotels</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <i class="fas fa-bullhorn"></i>
+                    <div class="card-body">
+                        <h3>Safty Guide</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente vero suscipit eos quam explicabo quas.</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+    </section>
+    <!-- Services Section End -->
+
+
+
+    <!-- About Section Start -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="static/images/about-img.png" alt="">
+        </div>
+        <div class="about-info">
+            <h6>About us</h6>
+            <h3>How Work This Travel Agency</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione odio vitae tempora nesciunt quibusdam? Delectus voluptatibus neque quod, id cumque blanditiis, suscipit temporibus ipsam aspernatur sunt voluptatem repellat corrupti amet at velit, minus reprehenderit voluptate nobis asperiores maxime deleniti quibusdam. Numquam sequi iusto consequatur obcaecati, incidunt quia accusantium perspiciatis expedita.</p>
+
+            <button class="about-btn">Read More...</button>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+
+
+
+    <!-- Gallary Section Start -->
+    <section class="gallary" id="gallary">
+        <div class="heading">
+            <h3>OUR GALLARY <i class="fa-solid fa-arrow-down"></i></h3>
+        </div>
+
+        <div class="gallary-card">
+            <div class="row">
+                <img src="static/images/p1.jpg" alt="">
+            </div>
+            <div class="row">
+                <img src="static/images/p2.png" alt="">
+            </div>
+            <div class="row">
+                <img src="static/images/p3.png" alt="">
+            </div>
+            <div class="row">
+                <img src="static/images/p4.png" alt="">
+            </div>
+            <div class="row">
+                <img src="static/images/p5.png" alt="">
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Gallary Section End -->
+
+
+
+
+
+    <!-- Packages Section Start -->
+    <section class="packages" id="packages">
+        <div class="main-txt">
+            <h3>Packages</h3>
+        </div>
+
+        <div class="card-content">
+            <div class="row">
+                <img src="static/images/united state.png" alt="">
+                <div class="card-body">
+                    <h3>United States</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/jordan.png" alt="">
+                <div class="card-body">
+                    <h3>Jordan</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/china.png" alt="">
+                <div class="card-body">
+                    <h3>China</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/Mexico.png" alt="">
+                <div class="card-body">
+                    <h3>Mexico</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/france.png" alt="">
+                <div class="card-body">
+                    <h3>France</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/Greece.png" alt="">
+                <div class="card-body">
+                    <h3>Greece</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/Spain.png" alt="">
+                <div class="card-body">
+                    <h3>Spain</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+            <div class="row">
+                <img src="static/images/Turkey.png" alt="">
+                <div class="card-body">
+                    <h3>Turkey</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                        <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <h5>Price $999</h5>
+                    <button>Book Now</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Packages Section End -->
+    <!-- Section Reviews Start -->
+    <section class="reviews" id="reviews">
+        <div class="main-txt">
+            <h3>What Custommers Say</h3>
+        </div>
+        <div class="card-content">
+            <div class="row">
+                <h5><img src="./images/pic-1.png" alt="">Elon Musk</h5>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam a earum commodi exercitationem explicabo amet repudiandae nemo nesciunt beatae omnis.</p>
+
+            </div>
+            <div class="row">
+                <h5><img src="./images/pic-2.png" alt="">Elon Musk</h5>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam a earum commodi exercitationem explicabo amet repudiandae nemo nesciunt beatae omnis.</p>
+
+            </div>
+            <div class="row">
+                <h5><img src="static/images/pic-3.png" alt="">Elon Musk</h5>
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam a earum commodi exercitationem explicabo amet repudiandae nemo nesciunt beatae omnis.</p>
+
+            </div>
+        </div>
+    </section>
+    <!-- Section Reviews End -->
+
+
+
+
+    <!-- Contact Section Start -->
+    <section class="contact" id="contact">
+        <div class="contact-text">
+            <h2>Get In <span>Touch</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe eius possimus nostrum in assumenda aliquam?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, accusantium.</p>
+            <div class="list">
+                <li><a href="#">+9200000000000000</a></li>
+                <li><a href="#">sivakumarguvvala@gmail.com</a></li>
+                <li><a href="#">Hyderabadi</a></li>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <form action="#">
+
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="number" name="phone" placeholder="Phone" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" id="" cols="35" rows="10" placeholder="Message" required></textarea>
+                <input type="submit" value="Send" class="submit" required>
+            </form>
+        </div>
+
+    </section>
+    <!-- Contact Section End -->
+    <br>
+    <br>
+    <h3>User Registration</h3>
+    <div id="Registration-form" style="border:1px solid black">
+        {{msg}}
+        <form method="post" action="/registration">
+        <br>
+        <br>
+        <label for="name">name : </label>
+            <br>
+        <input type="text" id="name" name="name" placeholder="name" required>
+        <br>
+        <br>
+            <label for="username">username : </label>
+            <br>
+        <input type="text" id="username" name="username" placeholder="username" required>
+            <br>
+            <br>
+        <label for="password">password</label>
+            <br>
+        <input type="password" id="password" name="password">
+        <br>
+        <br>
+            <label for="email">email : </label>
+            <br>
+        <input type="text" id="email" name="email" placeholder="yahoo@gmail.com" required>
+        <br>
+        <br>
+        <button onclick="myFunction()">Register</button>  <button style="color:white ; background-color:pink"><a href="/login">LoginHere</a></button>
+            <button><a href="/admin">AdminLogin</a> </button>         <br>
+            <br>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+ alert("Registration Succesfull")
+}
+</script>
+    </div>
+    </form>
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="row" id="row1">
+                <a href="#" id="footer-logo">Travel Agency</a>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis ratione voluptatem asperiores minima quidem quibusdam tenetur eligendi eaque incidunt. Laudantium?</p>
+                <div class="socail-links">
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </div>
+            </div>
+            <div class="row" id="row2">
+                <h3>UseFull Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">Book</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </div>
+            <div class="row" id="row3">
+                <h3>Other Links</h3>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">App Design</a></li>
+                    <li><a href="#">Game Design</a></li>
+                    <li><a href="#">Term & Condition</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="row" id="row4">
+                <h3>Download App</h3>
+                <img src="static/images/app.png" alt="">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

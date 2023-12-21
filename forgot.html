@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+        background-image:url("https://as1.ftcdn.net/v2/jpg/03/02/93/64/1000_F_302936451_ZFMYiY4DOKeKFvUrGm7o7ZsYGOmlmWAC.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left:40%;
+        padding-top:20%;
+        }
+        form{
+        font-size:larger;
+        }
+        input[type=email]{
+        size:larger;
+        width:20%;
+        height:20px;
+        }
+        input[type=submit]{
+        height:20px;
+        }
+
+    </style>
+</head>
+<body>
+<form action="/checkemail" method="post">
+    {{msg}}
+    <br>
+    <label for="email">Enter Email:</label>
+    <br>
+    <input type="email" name="email" id="email">
+    <input type="submit" value="check Emailid">
+</form>
+
+</body>
+</html>

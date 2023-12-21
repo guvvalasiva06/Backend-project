@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/update1">
+    <table>
+        <tr>
+            <th>emid</th>
+            <td><input type="text" name="emid" value=" {{data[0]}}" placeholder=""></td>
+
+        </tr>
+        <tr>
+            <th>name</th>
+        <td><input type="text" name="name" value=" {{data[1]}}" placeholder="name"></td>
+        </tr>
+        <tr>
+            <th>username</th>
+        <td><input type="text" name="username" value=" {{data[2]}}" placeholder="username"></td>
+        </tr>
+        <tr>
+            <th>password</th>
+        <td><input type="text" name="password" value=" {{data[3]}}" placeholder="password"></td>
+        </tr>
+        <tr>
+            <th>email</th>
+              <td><input type="text" name="email" value=" {{data[4]}}" placeholder="email"></td>
+
+        </tr>
+
+        <td>
+            <input type="submit" value="update">
+        </td>
+
+    </table>
+
+</form>
+</body>
+</html>

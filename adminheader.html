@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Header</title>
+    <style>
+         a{
+        text-decoration:none;
+        font-size:larger;
+        margin:30px;
+        }
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        li {
+        display: inline;
+        margin:30px;
+
+    }
+       ul{
+       background-color:aqua;
+       padding:30px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ admin }}</h1>
+    <p>This is the admin header page.</p>
+<a href="/booking">Display Boookings</a>
+<a href="/payment">Display payments</a>
+</body>
+</html>
+
+
